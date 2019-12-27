@@ -1,0 +1,1 @@
+docker run --name flaskapp --volume "%CD%/app":/app --network host docker-flask:latest

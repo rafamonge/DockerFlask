@@ -1,0 +1,1 @@
+docker run --name flaskapp --volume "%CD%/app":/app -p5000:5000 docker-flask:latest

@@ -1,0 +1,1 @@
+docker build --build-arg http_proxy=http://bnc000bda1005.bncrcp.inst.bncr.fi.cr:8080 --build-arg https_proxy=http://bnc000bda1005.bncrcp.inst.bncr.fi.cr:8080  -t docker-flask:latest . 
