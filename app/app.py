@@ -47,7 +47,7 @@ def networktest(hostname):
     if response == 0:
         pingstatus = "Network Active"
     else:
-        pingstatus = "Network ErroR"
+        pingstatus = "Network Error"
 
     return pingstatus
 
