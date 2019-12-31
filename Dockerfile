@@ -4,7 +4,9 @@ LABEL MAINTAINER  rafa
 
 RUN apt-get update -y && \
     apt-get install -y python3-pip python3.7-dev && \
-    apt-get install -y iputils-ping
+    apt-get install -y iputils-ping 
+
+RUN apt-get install -y libldap2-dev libsasl2-dev ldap-utils 
 
 COPY ./requirements.txt /requirements.txt
 

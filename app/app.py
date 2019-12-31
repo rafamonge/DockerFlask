@@ -1,6 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import AwesomeModel
-
+import pandas as pd
 import os
 import sys
 
@@ -28,9 +28,16 @@ def predict(input):
     output = model.predict(input)
     return render_template("predict.html", input=input, output=output)
 
-@app.route("/networktest")
-def networktest():
-    hostname = "10.0.232.253" #example
+@app.route("/predict_simple", methods=['GET', 'POST'])
+def predict_simple():
+    content = request.json
+    model = AwesomeModel.Model()
+    df = pd.DataFrame(content["data"])
+    res = model.predict_df(df)
+    return res.to_json(orient='records', lines=True)
+
+@app.route("/networktest/<hostname>")
+def networktest(hostname):
     print(hostname)
     response = os.system("ping -c 1 " + hostname)
     if response == 0:
@@ -42,7 +49,6 @@ def networktest():
 
 
 if __name__ == "__main__":
-    proxy = 'http://bnc000bda1005.bncrcp.inst.bncr.fi.cr:8080'
     print("Python version")
     print (sys.version)
     app.run(debug=True, host='0.0.0.0')
