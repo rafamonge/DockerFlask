@@ -3,6 +3,7 @@ import AwesomeModel
 import pandas as pd
 import os
 import sys
+from Security import require_appkey
 
 
 app = Flask(__name__)
@@ -22,13 +23,16 @@ def proxy():
     temp = "<h1>Proxies</h1><p>"  + temp
     return temp
 
+@require_appkey
 @app.route("/predict/<int:input>")
 def predict(input):
     model = AwesomeModel.Model()
     output = model.predict(input)
     return render_template("predict.html", input=input, output=output)
 
+
 @app.route("/predict_simple", methods=['GET', 'POST'])
+@require_appkey
 def predict_simple():
     content = request.json
     model = AwesomeModel.Model()
