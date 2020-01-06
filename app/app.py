@@ -23,7 +23,6 @@ def proxy():
     temp = "<h1>Proxies</h1><p>"  + temp
     return temp
 
-@require_appkey
 @app.route("/predict/<int:input>")
 def predict(input):
     model = AwesomeModel.Model()

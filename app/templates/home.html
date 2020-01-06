@@ -8,9 +8,17 @@
     {% extends "template.html" %}
     {% block content %}
     
-    <h1> My First Try Using Flaskcasdsadasdasdasdas </h1>
-    <p> Flask is Fun </p>
-    
+    <h1>Modelo predictivo en Docker/Flask  </h1>
+    <h2>Motivación</h2>
+    <p>Una parte vital en el desarrollo de un modelo de machine learning es el despliegue, sin embargo usualmente se suele dejar de lado. Un problema típico es que no se tiene claro cuales son los pasos a seguir para lograr que el modelo pueda ser ejecutado en una computadora. ¿Cuales son las dependencias? ¿Que versión de cada una de ellas? ¿Cuales configuraciones se ocupan en la computadora?</p>
+    <p>Adicionalmente, los cientificos de datos que desarrollaron el modelo usualmente no son expertos en arquitectura de software, lo cual suele incidir en que las implementaciones tengan debilidades en seguridad, rendimiento y otras.</p>
+    <p>Para solventar estos puntos, hace falta coordinación con el departamento de TI y establecer mejores prácticas. Este prototipo plantea el uso de contenedores Docker que exponga un webservice liviano como un estándar entre las areas de modelado y las de TI para el despliegue de modelos críticos al negocio.</p>
+    <h2>¿Por que Docker?</h2>
+    <p>Docker es un proyecto de código abierto que automatiza el despliegue de aplicaciones dentro de contenedores de software, proporcionando una capa adicional de abstracción y automatización de virtualización de aplicaciones en múltiples sistemas operativos</p>
+    <p>En terminos sencillos, permite crear desde cero y de forma replicable un ambiente para que corra una aplicación. Por ejemplo, permite partir desde un sistema operativo en blanco, instalar python, ciertas librerías con una versión específica, y un web server. Esto es precisamente lo que se realiza en esta prueba de concepto y consideramos que debe ser el entregable del equipo de modelado dado que permite a casí cualquier aplicación dentro de la empresa consumir el modelo de forma segura.</p>
+    <p>Parte importante del estándar es también lo que no hace: No tiene una interfaz gráfica, no tiene logging, no lee ni almacena datos en bases de datos. Es, única y exclusivamente, el modelo de machine learning disponible para ser consumido. Las otras tareas/responsabilidades mencionadas anteriormente igual son vitales, pero son más del dominio de TI (En algunas de ellas probablemente requeran amplia coordinación con el equipo de modelado, como la extracción de bases de datos de los datos requeridos) </p>
+    <h2>Conclusión</h2>
+    <p>Se propone un estándar de despliegue de modelos de aprendizaje automático. Este estandar permite garantizar el despliegue exitoso y replicable de los modelos de forma segura ya sea en infraestuctura en la nube o en tierra. Asimismo, brinda una segmentación clara de cuales son los roles y responsabilidades tanto del equipo modelador como de tecnologías de información.</p>
     {% endblock %}
   </body>
 </html>
